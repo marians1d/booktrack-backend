@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/book_icon.png' %}">
+    <title>
+        {% block title %}
+            BookTrack
+        {% endblock %}
+    </title>
+</head>
+<body>
+    {% include 'base/navbar.html' %}
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {# TODO: Add footer #}
+
+    <script src="{% static 'main.js' %}"></script>
+</body>
+</html>
