@@ -1,0 +1,55 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div class="account-form container">
+        <form action="{% url 'register user' %}" method="post">
+            <div class="form-group">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+                {% if form.username.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.username.errors|first }}
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.email.errors|first }}
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+                {% if form.password1.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.password1.errors|first }}
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="form-group">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+                {% if form.password2.errors %}
+                    <div class="alert alert-danger">
+                        {{ form.password2.errors|first }}
+                    </div>
+                {% endif %}
+            </div>
+        
+            {{ form.non_field_errors }}
+
+            {% csrf_token %}
+
+            <button type="submit" class="btn btn-primary">Register</button>
+
+{#            <a href="{% url 'login user' %}"></a>#}
+        </form>
+    </div>
+{% endblock %}
