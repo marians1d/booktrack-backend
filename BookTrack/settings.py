@@ -31,12 +31,21 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Builtin Applications
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap5',
+
+    # Custom Applications
+    "booktrack.books.apps.BooksConfig",
+    "booktrack.authors.apps.AuthorsConfig",
+    "booktrack.shelves.apps.ShelvesConfig",
+    "booktrack.accounts.apps.AccountsConfig",
+    "booktrack.common.apps.CommonConfig"
 ]
 
 MIDDLEWARE = [
@@ -49,13 +58,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'BookTrack.urls'
+ROOT_URLCONF = 'booktrack.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'BookTrack.wsgi.application'
+WSGI_APPLICATION = 'booktrack.wsgi.application'
 
 
 # Database
