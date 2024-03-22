@@ -4,11 +4,11 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <a href="{% url 'home page' %}">
+                <a href="{% url 'home_page' %}">
                     <img width="30px" src="{% static 'images/book_icon.png' %}" alt="Book icon">
                 </a>
 
-                <a class="home" href="{% url 'home page' %}">
+                <a class="home" href="{% url 'home_page' %}">
                     BookTrack
                 </a>
             </div>
@@ -21,32 +21,32 @@
 {#                            <i>Add Pet</i>#}
 {#                        </a>#}
                     </li>
-                    <li class="nav-item">
 
-{#                        <a href="{% url 'photo add' %}">#}
-{#                            <i>Add Photo</i>#}
-{#                        </a>#}
-                    </li>
                     {% if request.user.is_authenticated %}
                         <li class="nav-item">
-{#                            href="{% url 'profile details' pk=request.user.pk %}"#}
-                            <a>
-                                <i>{{ request.user.username }}</i>
+                            <a href="{% url 'search' %}">
+                                <i>Search Books</i>
                             </a>
                         </li>
+{#                        <li class="nav-item">#}
+{#                            href="{% url 'profile details' pk=request.user.pk %}"#}
+{#                            <a>#}
+{#                                <i>{{ request.user.username }}</i>#}
+{#                            </a>#}
+{#                        </li>#}
                         <li class="nav-item">
-                            <a href="{% url 'logout user' %}">
+                            <a href="{% url 'logout_user' %}">
                                 <i>Logout</i>
                             </a>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a href="{% url 'login user' %}">
+                            <a href="{% url 'login_user' %}">
                                 <i>Login</i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{% url 'register user' %}">
+                            <a href="{% url 'register_user' %}">
                                 <i>Register</i>
                             </a>
                         </li>

@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="account-form container">
-        <form action="{% url 'register user' %}" method="post">
+        <form action="{% url 'register_user' %}" method="post">
             <div class="form-group">
                 {{ form.username.label_tag }}
                 {{ form.username }}
@@ -49,7 +49,7 @@
 
             <button type="submit" class="btn btn-primary">Register</button>
 
-{#            <a href="{% url 'login user' %}"></a>#}
+{#            <a href="{% url 'login_user' %}"></a>#}
         </form>
     </div>
 {% endblock %}
