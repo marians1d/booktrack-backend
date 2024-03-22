@@ -1,0 +1,15 @@
+<div class="container">
+    {% for book in books %}
+    {% endfor %}
+</div>
+
+<nav>
+    <ul class="pagination">
+      {% if current_page > 1 %}
+        <li><a href="?q={{ search_term }}&page={{ current_page|add:'-1' }}">Previous</a></li>
+      {% endif %}
+
+      {% if books|length == 10 %} <li><a href="?q={{ search_term }}&page={{ current_page|add:'1' }}">Next</a></li>
+      {% endif %}
+    </ul>
+</nav>

@@ -14,19 +14,22 @@ from pathlib import Path
 
 import os
 import environ
+from django.urls import reverse_lazy
 
 env = environ.Env()
-environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+environ.Env.read_env(BASE_DIR / '.env')
+
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'django-insecure-nlt=hfv0#i5ma1x71l4w--sp@f$as&7#y!9=qlzh#1-zjll-v#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG', bool, default=False)
@@ -148,5 +151,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.BookTrackUser'
+
+LOGIN_URL = reverse_lazy('login_user')
 
 GOOGLE_BOOKS_API_KEY = env('GOOGLE_BOOKS_API_KEY')
