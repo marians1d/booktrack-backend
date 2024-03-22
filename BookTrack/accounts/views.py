@@ -4,14 +4,15 @@ from django.views import generic as views
 from django.contrib.auth import views as auth_views, login, get_user_model
 
 from .forms import RegistrationForm, LoginForm
+from .mixins import RedirectAuthenticatedUserMixin
 
 UserModel = get_user_model()
 
 
-class RegistrationView(views.CreateView):
+class RegistrationView(RedirectAuthenticatedUserMixin, views.CreateView):
     template_name = 'accounts/register.html'
     form_class = RegistrationForm
-    success_url = reverse_lazy('home page')
+    success_url = reverse_lazy('home_page')
 
     def form_valid(self, form):
         result = super().form_valid(form)
@@ -34,15 +35,15 @@ class RegistrationView(views.CreateView):
         return self.request.POST.get('next', self.success_url)
 
 
-class LoginUserView(auth_views.LoginView):
+class LoginUserView(RedirectAuthenticatedUserMixin, auth_views.LoginView):
     template_name = 'accounts/login.html'
     # form_class = LoginForm
 
-    next_page = reverse_lazy('home page')
+    next_page = reverse_lazy('home_page')
 
 
 class LogoutUserView(auth_views.LogoutView):
-    next_page = reverse_lazy('home page')
+    next_page = reverse_lazy('home_page')
 
 
 
