@@ -1,9 +1,8 @@
-from django.shortcuts import render
+from django.contrib.auth import views as auth_views, login, get_user_model
 from django.urls import reverse_lazy
 from django.views import generic as views
-from django.contrib.auth import views as auth_views, login, get_user_model
 
-from .forms import RegistrationForm, LoginForm
+from .forms import RegistrationForm
 from .mixins import RedirectAuthenticatedUserMixin
 
 UserModel = get_user_model()
@@ -44,6 +43,8 @@ class LoginUserView(RedirectAuthenticatedUserMixin, auth_views.LoginView):
 
 class LogoutUserView(auth_views.LogoutView):
     next_page = reverse_lazy('home_page')
+
+
 
 
 

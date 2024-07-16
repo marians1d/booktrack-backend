@@ -1,8 +1,8 @@
 from enum import Enum
 
+from django.contrib.auth import models as auth_model
 from django.core import validators
 from django.db import models
-from django.contrib.auth import models as auth_model
 
 
 class Gender(Enum):

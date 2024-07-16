@@ -1,15 +1,38 @@
-<div class="container">
-    {% for book in books %}
-    {% endfor %}
-</div>
+{% extends 'base/base.html' %}
+{% load static %}
 
-<nav>
-    <ul class="pagination">
-      {% if current_page > 1 %}
-        <li><a href="?q={{ search_term }}&page={{ current_page|add:'-1' }}">Previous</a></li>
-      {% endif %}
+{% block content %}
+    <div class="container">
+        {% for book in books %}
+            <div class="book-wrap">
+                {{ book.title }}
+                
+                {% if book.cover_link %}
+                    <img src="{{ book.small_cover_link }}">
+                {% else %}
+                    <img src="{% static 'images/default_book_cover.jpg' %}">
+                {% endif %}
+            
+                <a href="{% url 'book_details' book.id %}">Details</a>
+            </div>
+        {% endfor %}
+    </div>
 
-      {% if books|length == 10 %} <li><a href="?q={{ search_term }}&page={{ current_page|add:'1' }}">Next</a></li>
-      {% endif %}
-    </ul>
-</nav>
+    <nav>
+        <ul class="pagination">
+            {% if current_page > 1 %}
+                <li>
+                    <a href="?q={{ search_term }}&page={{ current_page|add:'-1' }}">Previous</a>
+                </li>
+            {% endif %}
+
+            {{ current_page }} / {{ total_pages }}
+
+            {% if books|length == paginate_by %}
+                <li>
+                    <a href="?q={{ search_term }}&page={{ current_page|add:'1' }}">Next</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endblock %}

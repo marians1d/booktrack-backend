@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="book-wrap">
+        {% if book.cover_link %}
+            <img src="{{ book.cover_link }}">
+        {% else %}
+            <img src="{% static 'images/default_book_cover.jpg' %}">
+        {% endif %}
+
+        <div>
+            {{ book.title }}
+        </div>
+
+        <div>
+            {{ book.subtitle }}
+        </div>
+
+        <div>
+            {{ book.description }}
+        </div>
+        
+        <div>
+            {{ book.authors }}
+        </div>
+        
+        <div>
+            {{ book.categories }}
+        </div>
+
+        <div>
+            {{ book.page_count }}
+        </div>
+    
+        <form method="post" action="{% url '' %}">
+            <input type="submit" value="Add to Bookshelf">
+        </form>
+    </div>
+{% endblock %}

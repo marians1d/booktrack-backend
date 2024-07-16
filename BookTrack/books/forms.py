@@ -1,5 +1,4 @@
 from django import forms
-from .validators import alphanumeric
 
 
 class SearchForm(forms.Form):
@@ -9,5 +8,5 @@ class SearchForm(forms.Form):
         widget=forms.TextInput(attrs={
             'class': 'form-control'
         }),
-        validators=[alphanumeric]
+        # validators=[alphanumeric]
     )
