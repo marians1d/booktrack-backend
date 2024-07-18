@@ -47,13 +47,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap5',
+    'rest_framework',
 
     # Custom Applications
-    "booktrack.books.apps.BooksConfig",
-    "booktrack.authors.apps.AuthorsConfig",
-    "booktrack.shelves.apps.ShelvesConfig",
-    "booktrack.accounts.apps.AccountsConfig",
-    "booktrack.common.apps.CommonConfig"
+    "BookTrack.books.apps.BooksConfig",
+    "BookTrack.authors.apps.AuthorsConfig",
+    "BookTrack.shelves.apps.ShelvesConfig",
+    "BookTrack.accounts.apps.AccountsConfig",
+    "BookTrack.common.apps.CommonConfig"
 ]
 
 MIDDLEWARE = [
@@ -66,7 +67,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'booktrack.urls'
+ROOT_URLCONF = 'BookTrack.urls'
 
 TEMPLATES = [
     {
@@ -84,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'booktrack.wsgi.application'
+WSGI_APPLICATION = 'BookTrack.wsgi.application'
 
 
 # Database
