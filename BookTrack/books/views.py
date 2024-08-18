@@ -61,7 +61,7 @@ class BookSearchResultView(LoginRequiredMixin, ListView):
 
         if 'items' in data:
             for item in data['items']:
-                info = item.get('volumeInfo', None)
+                info = item
 
                 industry_identifiers = info.get('industryIdentifiers', [])
 
@@ -70,7 +70,7 @@ class BookSearchResultView(LoginRequiredMixin, ListView):
                     if identifier['type'] == 'ISBN_13':
                         isbn = identifier['identifier']
 
-                images = info.get('imageLinks', {})
+                images = info
 
                 date_string = info.get('publishedDate', None)
 
