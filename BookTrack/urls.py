@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('BookTrack.accounts.urls')),
     path('', include('BookTrack.common.urls')),
-    path('books/', include('BookTrack.books.urls'))
+    path('books/', include('BookTrack.books.urls')),
 ]
