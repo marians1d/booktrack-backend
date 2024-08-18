@@ -43,10 +43,3 @@ class LoginUserView(RedirectAuthenticatedUserMixin, auth_views.LoginView):
 
 class LogoutUserView(auth_views.LogoutView):
     next_page = reverse_lazy('home_page')
-
-
-
-
-
-
-
